@@ -1,0 +1,47 @@
+<h2>Interpolation</h2>
+<p>Sabendo que {{nome}} tem {{idade}} anos!</p>
+<p>é correto assumir que {{nome}} tem mais de 20 anos?</p>
+<p>{{idade>20}}</p>
+
+<p>Teste de soma</p>
+<p> minha idade mais 5 ={{idade + 5}}</p>
+
+<h3>Vale ressaltar que também é possível manipular variaveis entre si</h3>
+<p>teste soma de variáveis</p>
+{{idade}}+{{soma}} = {{idade + soma}}
+<hr>
+
+<h2>Property Binding</h2>
+<button [disabled]="checkedDisabled">Button</button>
+<br>
+
+
+<img [src]="imgSrc" [title]="imgTitle">
+
+
+<h2>Event Binding</h2>
+
+<div align="left">
+<button (click)="alertainfo('Funcionou!')">Evento Alerta</button>
+
+
+<button (click)="alertainfo2($event)">Evento log</button>
+</div><br><br>
+
+
+{{position.x}} |
+{{position.y}}
+
+<div (mousemove)="mouseMoveTest($event)" style="background: red; width:300px; height:300px"></div>
+
+<br><br>
+
+<h2>Two-way binding</h2>
+
+Digite seu nome:
+<input [(ngModel)]="nome">
+<br>
+<br>
+Digite sua idade:
+<input [(ngModel)]="idade">
+

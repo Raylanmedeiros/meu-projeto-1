@@ -1,0 +1,58 @@
+<h2>Testando *ngIf</h2>
+
+<p *ngIf="condition; else elseBlock">
+    True
+</p>
+
+    <ng-template #elseBlock>
+        <p>
+            False
+        </p>
+    </ng-template>
+<hr>
+
+    <p *ngIf="conditionClick">
+        True
+    </p>
+
+    <p *ngIf="!conditionClick">
+        False
+    </p>
+
+<button (click)="onClick()">Clicar</button>
+<hr> 
+
+<h2>Testando *ngFor</h2>
+
+Digite seu nome:
+<br>
+<input [(ngModel)]="nomeCad">
+<br><br>
+
+Digite sua idade:
+<br>
+<input [(ngModel)]="idadeCad">
+
+<button (click)="onClickAddList()">Add</button>
+
+
+<ul align="left">
+    <li *ngFor="let item of list; let i =index;" (click)="onClickEventList(i)">[{{i}}] {{item.nomeCad}} - idade = {{item.idadeCad}}</li>
+</ul>
+
+<hr>
+
+<div [ngSwitch]="nomeCad">
+    
+    <p *ngSwitchCase="'RAYLAN'">
+        Raylan
+    </p>
+
+    <p *ngSwitchCase="'Medeiros'">
+        Medeiros
+    </p>
+
+    <p *ngSwitchDefault>
+        Nenhum item encontrado!
+    </p>
+</div>

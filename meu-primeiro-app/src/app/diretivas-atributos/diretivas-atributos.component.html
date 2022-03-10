@@ -1,0 +1,74 @@
+<!--
+
+<ng-content select="h1"></ng-content>
+
+<h2>Testando validações com NgClass</h2>
+<p [ngClass]="{'active': valor, 'disable': !valor}">NgClass</p>
+<hr>
+<h2>Testando NgStyle</h2>
+<p [ngStyle]="{'height':'auto','width':altura, 'background': backColor}">NgStyle</p>
+<hr> 
+-->
+
+
+<!-- versão menos funcional do código de baixo -->
+<!-- 
+    <input [(ngModel)]="nome">
+<button (click)="salvar()">Salvar</button>
+
+<li *ngFor="let item of list">{{item.nome}}</li>
+-->
+
+<!-- Nesse caso em específico, só gera resultado em casos de preenchimento-->
+<!--
+<input type="text" style="width: 350px;" [(ngModel)]="nome" >
+<input type="number" style="width: 30px;" [(ngModel)]="idade" name="idade" placeholder="00" maxlength="2"
+oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" >
+
+<button (click)="salvar()">Salvar</button>
+<br>
+
+<ng-template ngFor let-item [ngForOf]="list">
+
+    <table border="1" height="30px" title="teste">
+        
+        <tr>
+            <td width="350">{{item.nome}}</td> <td width="30">{{item.idade}}</td>
+        </tr>
+    </table>  
+</ng-template>
+
+
+<ng-content select="hr"></ng-content>  -->
+
+<h2>Teste Cadastro</h2>
+
+Nome
+<input type="text" style="width: 350px;" [(ngModel)]="nome">
+<br>
+Idade&nbsp;
+<input type="number" style="width: 30px;" [(ngModel)]="idade" name="idade" placeholder="00" maxlength="2"
+oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" >
+
+<button (click)="salvar()">Cadastrar</button>
+<br><br>
+
+<table border="1" height="30px" title="teste" >       
+    <tr style="background-color: darkgrey;">
+        <td width="40" align="center">Index</td>
+        <td width="350">Nome</td> 
+        <td width="40" align="center">Idade</td>
+        <td width="70" align="center">Data</td>
+    </tr>
+</table>  
+
+<ng-template ngFor let-item [ngForOf]="list" let-i="index+1" (click)="onClickEventList(i+1)">
+     <table border="1" height="30px" title="teste" id=i>       
+        <tr>
+            <td width="40" align="center">{{i}}</td>
+            <td width="350">{{item.nome}}</td> 
+            <td width="40" align="center">{{item.idade*-1}}</td>
+            <td width="70" align="center">{{data | date:'dd/MM/yy'}}</td>
+        </tr>
+    </table>  
+</ng-template>
